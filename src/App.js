@@ -1,41 +1,16 @@
-import {useState} from 'react'
-import Counter from './Counter'
-import Employee from './Employee'
-import Show from './Show'
+import React from 'react'
+import Navbar from "./components/navbar/Navbar";
+import "./App.css"
+import Banner from './components/Banner/Banner';
+import RowPost from './components/RowPost/RowPost';
 
 function App() {
-  const [count,setCount] = useState(0)
-  const [show,setShow] = useState(false)
-  const addCount = () =>{
-    setCount(count+1)
-  }
-
-let emp = [{
-  name : 'Athila',
-  age : 21
-},{
-  name : 'Ajmal',
-  age : 26
-},{
-  name : 'Asif',
-  age : 29
-}
-]
-
+  
   return (
     <div className="App">
-      <button onClick={addCount}>Add</button>
-      <Counter count={count}/>
-      
-      {
-        emp.map((obj,index) => {
-          return(
-            <Employee key={index} {...obj}/>
-          )
-        })
-      }
-        <h1 onClick={()=>setShow(!show)}>Hide/Show</h1>
-         {show? <Show />:null}
+     <Navbar />
+     <Banner />
+     <RowPost />
     </div>
   );
 }
